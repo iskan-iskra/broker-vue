@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import MyBrokerCard from "@/components/MyBrokerCard.vue";
-import MyCountryFilter from "@/components/MyCountryFilter.vue";
-import { useBrokerListStore, useCountryStore } from "@/stores";
+import { MyBrokerCard, MyCountryFilter, MyLoader } from "@/components";
+import { useBrokerListStore } from "@/stores";
 const broker = useBrokerListStore();
-const country = useCountryStore();
 </script>
 
 <template>
-  <v-container class="container">
+  <template v-if="!broker.isLoading && !broker.isError">
     <v-row>
       <v-col :cols="12" :sm="12" :md="6" :lg="4"> <MyCountryFilter /></v-col>
     </v-row>
@@ -22,7 +20,11 @@ const country = useCountryStore();
         ><MyBrokerCard v-bind="item"
       /></v-col>
     </v-row>
-  </v-container>
+  </template>
+  <MyLoader v-else />
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.home-view {
+}
+</style>
