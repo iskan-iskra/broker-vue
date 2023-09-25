@@ -2,6 +2,8 @@
 
 ## node version 16.14.1
 
+## deploy https://broker-vue.vercel.app/
+
 ## Project Setup
 
 ```sh
