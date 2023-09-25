@@ -12,15 +12,17 @@ onMounted(async () => {
 
 <template>
   <MyHeader />
-  <v-container>
+  <v-container class="app__container">
     <RouterView />
   </v-container>
 </template>
 
 <style scoped lang="scss">
-.container {
-  @media all and (max-width: 420px) {
-    padding-bottom: 64px;
+.app {
+  &__container {
+    @media all and (max-width: 420px) {
+      padding-bottom: 64px;
+    }
   }
 }
 </style>
